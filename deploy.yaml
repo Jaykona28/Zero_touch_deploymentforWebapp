@@ -18,7 +18,7 @@
     - name: Pull the latest Docker image
       command: docker pull {{ image_name }}
       register: pull_request
-      changed_when: "'Download newer image' in pull_result.stdout or 'Status: Image is up to date' not in pull_request.stdout"
+      changed_when: "'Download newer image' in pull_request.stdout or 'Status: Image is up to date' not in pull_request.stdout"
 
     - name: Stop existing container if running
       command: docker stop {{ container_name }}
